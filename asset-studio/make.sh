@@ -24,8 +24,9 @@ cd src/
 #find images -iname \*.png -exec pngcrush {} ../dist/{} \;
 
 cd js/
-ant clean
-ant dist
+echo `pwd`
+ant clean -propertyfile ../../../local.properties
+ant dist -propertyfile ../../../local.properties
 cd ..
 
 find css -iname \*.css -exec java -jar ../lib/yuicompressor-2.4.2.jar -o ../dist/{} {} \;
